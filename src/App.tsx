@@ -15,23 +15,27 @@ function App() {
     <BrowserRouter>
       {authenticationCompleted && (
         <Layout>
-          <Routes>
-            {routes.map((route) => {
-              return route.isProtected ? (
-                <Route
-                  key={route.id}
-                  path={route.path}
-                  element={<Navigate to={route.redirectPath} replace={true} />}
-                />
-              ) : (
-                <Route
-                  key={route.id}
-                  path={route.path}
-                  element={route.element}
-                />
-              );
-            })}
-          </Routes>
+          <div className="py-20 px-0">
+            <Routes>
+              {routes.map((route) => {
+                return route.isProtected ? (
+                  <Route
+                    key={route.id}
+                    path={route.path}
+                    element={
+                      <Navigate to={route.redirectPath} replace={true} />
+                    }
+                  />
+                ) : (
+                  <Route
+                    key={route.id}
+                    path={route.path}
+                    element={route.element}
+                  />
+                );
+              })}
+            </Routes>
+          </div>
         </Layout>
       )}
     </BrowserRouter>

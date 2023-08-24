@@ -1,3 +1,5 @@
+import Navbar from "./Navbar";
+
 interface Props {
   children: React.ReactNode;
 }
@@ -7,7 +9,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
     <>
       <div>
         <div>
-          {/* <Header /> */}
+          <Navbar />
           <div>{children}</div>
         </div>
       </div>
