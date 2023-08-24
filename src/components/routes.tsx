@@ -1,10 +1,12 @@
-import HomePage from "../pages/Home/Home";
+import HomePage from "../pages/Home/Home.Page";
 
 export const paths = {
   homePath: "/",
   anyPath: "/*",
 };
 const AllRoutes = () => {
+  //   const { isLoggedIn } = useStore();
+  // console.log(isLoggedIn)
   const routes = [
     {
       path: paths.homePath,
