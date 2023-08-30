@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React from "react";
-// import routes, { paths } from "../routes";
+import { paths } from "../../components/routes";
 
 // import { userStore } from "../store/userStore";
 
@@ -72,9 +72,12 @@ const RegisterPage: React.FC<any> = () => {
                 }
               />
             </div>
-            <a href="#" className="text-xs text-purple-600 hover:underline">
+            <Link
+              to={paths.registrPage}
+              className="text-xs text-purple-600 hover:underline"
+            >
               Forget Password?
-            </a>
+            </Link>
             <div className="mt-6">
               <button
                 type="submit"
@@ -88,9 +91,12 @@ const RegisterPage: React.FC<any> = () => {
           <p className="mt-8 text-xs font-light text-center text-gray-700">
             {" "}
             Already have an account?{" "}
-            <a href="#" className="font-medium text-purple-600 hover:underline">
-              Sign up
-            </a>
+            <Link
+              to={paths.loginPath}
+              className="font-medium text-purple-600 hover:underline"
+            >
+              Sign in
+            </Link>
           </p>
         </div>
       </div>
