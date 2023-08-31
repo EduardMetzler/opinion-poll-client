@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React from "react";
 import { paths } from "../../components/routes";
+import { useUserStore } from "../../stores/useUserStore";
 
 // import { userStore } from "../store/userStore";
 
@@ -14,6 +15,7 @@ const LoginPage: React.FC<any> = () => {
     email: "",
     password: "",
   });
+  const saveUser = useUserStore((state) => state.saveUser);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -24,6 +26,8 @@ const LoginPage: React.FC<any> = () => {
         { withCredentials: true }
       );
       console.log(response);
+      saveUser(response.data.userWithoutPassword);
+
       // setUser(response.data.userWithoutPassword);
       // setMessage(response.data.message);
       // setIsLoggedIn(true);

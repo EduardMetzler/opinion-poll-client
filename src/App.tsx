@@ -1,16 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-// import "./App.css";
-import "./index.css";
-import AllRoutes from "./components/routes";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useUserStore } from "../src/stores/useUserStore";
 import Layout from "./components/Layout";
+import AllRoutes from "./components/routes";
+import "./index.css";
 
 function App() {
+  const user = useUserStore((state) => state.user);
+  // setInterval(() => {
+  //   console.log(user);
+  // });
   const routes = AllRoutes();
   const authenticationCompleted = true;
+  console.log(user);
   return (
     <BrowserRouter>
       {authenticationCompleted && (

@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import React from "react";
 import { paths } from "../../components/routes";
-
-// import { userStore } from "../store/userStore";
+import { useUserStore } from "../../stores/useUserStore";
 
 const RegisterPage: React.FC<any> = () => {
   const navigate = useNavigate();
@@ -14,6 +13,7 @@ const RegisterPage: React.FC<any> = () => {
     email: "",
     password: "",
   });
+  const saveUser = useUserStore((state) => state.saveUser);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -24,6 +24,7 @@ const RegisterPage: React.FC<any> = () => {
         { withCredentials: true }
       );
       console.log(response);
+      saveUser(response.data.userWithoutPassword);
     } catch (error) {
       console.log(error);
     }
