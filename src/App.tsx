@@ -3,12 +3,27 @@ import { useUserStore } from "../src/stores/useUserStore";
 import Layout from "./components/Layout";
 import AllRoutes from "./components/routes";
 import "./index.css";
+import axios from "axios";
+
+import { useEffect } from "react";
 
 function App() {
   const user = useUserStore((state) => state.user);
-  // setInterval(() => {
-  //   console.log(user);
-  // });
+  const saveUser = useUserStore((state) => state.saveUser);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/user/checkCookie`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log(response.data);
+        saveUser(response.data);
+      });
+  }, []);
+  setInterval(() => {
+    console.log(user);
+  });
   const routes = AllRoutes();
   const authenticationCompleted = true;
   console.log(user);
