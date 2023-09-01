@@ -1,6 +1,7 @@
 import HomePage from "../pages/Home/Home.Page";
 import LoginPage from "../pages/Login/Login.Page";
 import RegistrPage from "../pages/Register/Register.Page";
+import { useUserStore } from "../stores/useUserStore";
 
 export const paths = {
   homePath: "/",
@@ -11,6 +12,9 @@ export const paths = {
 const AllRoutes = () => {
   //   const { isLoggedIn } = useStore();
   // console.log(isLoggedIn)
+  const user = useUserStore((state) => state.user);
+  // console.log(user);
+
   const routes = [
     {
       path: paths.homePath,
@@ -22,14 +26,14 @@ const AllRoutes = () => {
     {
       path: paths.loginPath,
       element: <LoginPage />,
-      isProtected: false,
+      isProtected: user.id ? true : false,
       redirectPath: "/",
       id: "LoginPage",
     },
     {
       path: paths.registrPage,
       element: <RegistrPage />,
-      isProtected: false,
+      isProtected: user.id ? true : false,
       redirectPath: "/",
       id: "RegistrPage",
     },
