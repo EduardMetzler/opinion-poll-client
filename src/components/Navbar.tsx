@@ -1,9 +1,27 @@
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
+import axios from "axios";
+import { useUserStore } from "../stores/useUserStore";
 
 const Navbar = () => {
   const Links = [{ name: "Home", link: "/" }];
   let [open, setOpen] = useState(false);
+  const deleteUser = useUserStore((state) => state.deleteUser);
+  const user = useUserStore((state) => state.user);
+
+  const logout = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5000/user/clearCookie",
+
+        { withCredentials: true }
+      );
+      console.log(response);
+      deleteUser();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="shadow-md w-full fixed top-0 left-0">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
@@ -63,6 +81,12 @@ text-gray-800"
               <NavLink to={link.link}> {link.name}</NavLink>
             </li>
           ))}
+          <button
+            onClick={logout}
+            className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+          >
+            Logout
+          </button>
         </ul>
       </div>
     </div>

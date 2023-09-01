@@ -27,13 +27,6 @@ const LoginPage: React.FC<any> = () => {
       );
       console.log(response);
       saveUser(response.data.userWithoutPassword);
-
-      // setUser(response.data.userWithoutPassword);
-      // setMessage(response.data.message);
-      // setIsLoggedIn(true);
-      // if (response) {
-      //   return navigate("/dashboard");
-      // }
     } catch (error) {
       console.log(error);
     }
