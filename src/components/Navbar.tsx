@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { paths } from "../components/routes";
+
 import axios from "axios";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -81,12 +84,30 @@ text-gray-800"
               <NavLink to={link.link}> {link.name}</NavLink>
             </li>
           ))}
-          <button
-            onClick={logout}
-            className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-          >
-            Logout
-          </button>
+          {!user.id ? (
+            <>
+              {" "}
+              <Link
+                to={paths.loginPath}
+                className="w-full ml-2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+              >
+                Einloggen
+              </Link>
+              <Link
+                to={paths.registrPage}
+                className="w-full ml-2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+              >
+                Registrieren
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={logout}
+              className=" ml-2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+            >
+              Abmelden
+            </button>
+          )}
         </ul>
       </div>
     </div>

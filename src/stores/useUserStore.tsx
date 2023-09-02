@@ -8,24 +8,13 @@ interface UserStore {
 
 export const useUserStore = create<UserStore>((set, get) => ({
   user: { email: "", userName: "", id: "" },
-  saveUser: (userWithoutPassword) => {
-    // const { user } = get();
-
-    const newUser = {
-      email: userWithoutPassword.email,
-      userName: userWithoutPassword.userName,
-      id: userWithoutPassword._id,
-    };
+  saveUser: (userWithoutPassword) =>
     set({
-      user: newUser,
-    });
-  },
-  deleteUser: () => {
-    // const { user } = get();
-
-    set({
-      user: { email: "", userName: "", id: "" },
-    });
-    // console.log(user);
-  },
+      user: {
+        email: userWithoutPassword.email,
+        userName: userWithoutPassword.userName,
+        id: userWithoutPassword._id,
+      },
+    }),
+  deleteUser: () => set({ user: { email: "", userName: "", id: "" } }),
 }));
