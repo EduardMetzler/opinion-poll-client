@@ -1,3 +1,4 @@
+import Error404Page from "../pages/Error404Page/Error404Page.Page";
 import HomePage from "../pages/Home/Home.Page";
 import LoginPage from "../pages/Login/Login.Page";
 import RegistrPage from "../pages/Register/Register.Page";
@@ -7,7 +8,7 @@ export const paths = {
   homePath: "/",
   loginPath: "/login",
   registrPage: "/register",
-  anyPath: "/*",
+  Error404Page: "/*",
 };
 const AllRoutes = () => {
   //   const { isLoggedIn } = useStore();
@@ -38,8 +39,8 @@ const AllRoutes = () => {
       id: "RegistrPage",
     },
     {
-      path: paths.anyPath,
-      //   element: <404 />,
+      path: paths.Error404Page,
+      element: <Error404Page />,
       isProtected: false,
       redirectPath: "/",
       id: "404Page",
