@@ -10,6 +10,7 @@ function App() {
   const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
   const user = useUserStore((state) => state.user);
   const saveUser = useUserStore((state) => state.saveUser);
+  const deleteUser = useUserStore((state) => state.deleteUser);
 
   useEffect(() => {
     axios
@@ -17,13 +18,14 @@ function App() {
         withCredentials: true,
       })
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         saveUser(response.data);
         setAuthenticationCompleted(true);
       })
       .catch((err) => {
         console.log(err);
         setAuthenticationCompleted(true);
+        deleteUser();
       });
   }, []);
   // setInterval(() => {
