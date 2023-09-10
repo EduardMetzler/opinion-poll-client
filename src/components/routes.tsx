@@ -4,6 +4,7 @@ import LoginPage from "../pages/Login/Login.Page";
 import RegistrPage from "../pages/Register/Register.Page";
 import DashboardPage from "../pages/Dashboard/Dashboard.page";
 import CreateOpinionPollPage from "../pages/CreateOpinionPoll/CreateOpinionPoll.Page";
+import MyOpinionPollPage from "../pages/MyOpinionPoll/MyOpinionPoll.Page";
 
 import { useUserStore } from "../stores/useUserStore";
 
@@ -13,6 +14,8 @@ export const paths = {
   registrPage: "/register",
   dashboardPage: "/dashboard",
   createOpinionPoll: "/create-opinion-poll",
+  myOpinionPollPath: "/my-opinion-poll/:_id",
+
   Error404Page: "/*",
 };
 const AllRoutes = () => {
@@ -56,6 +59,13 @@ const AllRoutes = () => {
       isProtected: !user.id ? true : false,
       redirectPath: "/login",
       id: "CreateOpinionPollPage",
+    },
+    {
+      path: paths.myOpinionPollPath,
+      element: <MyOpinionPollPage />,
+      isProtected: !user.id ? true : false,
+      redirectPath: "/login",
+      id: "MyOpinionPollPage",
     },
     {
       path: paths.Error404Page,
