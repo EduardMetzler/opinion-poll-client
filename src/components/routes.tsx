@@ -2,9 +2,10 @@ import Error404Page from "../pages/Error404Page/Error404Page.Page";
 import HomePage from "../pages/Home/Home.Page";
 import LoginPage from "../pages/Login/Login.Page";
 import RegistrPage from "../pages/Register/Register.Page";
-import DashboardPage from "../pages/Dashboard/Dashboard.page";
+import DashboardPage from "../pages/Dashboard/Dashboard.Page";
 import CreateOpinionPollPage from "../pages/CreateOpinionPoll/CreateOpinionPoll.Page";
 import MyOpinionPollPage from "../pages/MyOpinionPoll/MyOpinionPoll.Page";
+import PinionPollPage from "../pages/PinionPoll/PinionPoll.Page";
 
 import { useUserStore } from "../stores/useUserStore";
 
@@ -15,6 +16,7 @@ export const paths = {
   dashboardPage: "/dashboard",
   createOpinionPoll: "/create-opinion-poll",
   myOpinionPollPath: "/my-opinion-poll/:_id",
+  pinionPollPath: "/:_id",
 
   Error404Page: "/*",
 };
@@ -66,6 +68,13 @@ const AllRoutes = () => {
       isProtected: !user.id ? true : false,
       redirectPath: "/login",
       id: "MyOpinionPollPage",
+    },
+    {
+      path: paths.pinionPollPath,
+      element: <PinionPollPage />,
+      isProtected: !user.id ? true : false,
+      redirectPath: "/:_id",
+      id: "PinionPollPage",
     },
     {
       path: paths.Error404Page,
