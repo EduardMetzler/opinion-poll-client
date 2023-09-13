@@ -21,7 +21,7 @@ const PinionPollPage = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         `http://localhost:5000/opinion-poll/vote/${_id}`,
         { select }
       );
