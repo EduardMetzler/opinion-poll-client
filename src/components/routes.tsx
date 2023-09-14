@@ -72,8 +72,8 @@ const AllRoutes = () => {
     {
       path: paths.pinionPollPath,
       element: <PinionPollPage />,
-      isProtected: !user.id ? true : false,
-      redirectPath: "/:_id",
+      isProtected: false,
+      redirectPath: "/",
       id: "PinionPollPage",
     },
     {
