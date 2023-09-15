@@ -9,8 +9,12 @@ interface OpinionPoll {
   questions: [{ id: number; question: string; vote: number }];
 }
 
+type Params = {
+  _id: any;
+};
+
 const PinionPollPage: React.FC<any> = () => {
-  const { _id } = useParams();
+  const { _id } = useParams<Params>();
 
   const [loading, setLoading] = useState(true);
 
