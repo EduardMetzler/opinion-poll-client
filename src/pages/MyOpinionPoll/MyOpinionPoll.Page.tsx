@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import PinionPollData from "../../components/PinionPollData";
 
 interface OpinionPoll {
   title: string;
@@ -31,18 +32,7 @@ const MyOpinionPollPage: React.FC<any> = () => {
   }, []);
   return (
     <>
-      <p>{opinionPoll.title}</p>
-      <div>
-        {" "}
-        {opinionPoll.questions.map((oneOpinionPoll) => {
-          return (
-            <div>
-              <p>{oneOpinionPoll.question}</p>
-              <p>{oneOpinionPoll.vote}</p>
-            </div>
-          );
-        })}
-      </div>
+      <PinionPollData opinionPoll={opinionPoll} />
     </>
   );
 };

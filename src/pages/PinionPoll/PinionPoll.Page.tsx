@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
+import PinionPollData from "../../components/PinionPollData";
 
 interface OpinionPoll {
   title: string;
@@ -75,20 +76,9 @@ const PinionPollPage: React.FC<any> = () => {
 
   return (
     <>
-      {localStorage.getItem("listVote")?.includes(_id) ? (
+      {localStorage.getItem("listVote")?.includes(_id) && !loading ? (
         <>
-          <p>{opinionPoll.title}</p>
-          <div>
-            {" "}
-            {opinionPoll.questions.map((oneOpinionPoll) => {
-              return (
-                <div>
-                  <p>{oneOpinionPoll.question}</p>
-                  <p>{oneOpinionPoll.vote}</p>
-                </div>
-              );
-            })}
-          </div>
+          <PinionPollData opinionPoll={opinionPoll} />
         </>
       ) : (
         <>
