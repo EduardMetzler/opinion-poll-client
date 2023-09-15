@@ -6,7 +6,7 @@ import { paths } from "../../components/routes";
 import { useUserStore } from "../../stores/useUserStore";
 
 const RegisterPage: React.FC<any> = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [userRegister, setUserRegister] = useState({
     userName: "",

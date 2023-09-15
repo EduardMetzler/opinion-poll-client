@@ -9,7 +9,7 @@ import { useUserStore } from "../../stores/useUserStore";
 
 const LoginPage: React.FC<any> = () => {
   //   const { firstName, setFirstName, setlastName, setRole } = userStore();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [userLogin, setUserLogin] = useState({
     email: "",

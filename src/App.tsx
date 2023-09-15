@@ -8,7 +8,6 @@ import "./index.css";
 
 function App() {
   const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
-  const user = useUserStore((state) => state.user);
   const saveUser = useUserStore((state) => state.saveUser);
   const deleteUser = useUserStore((state) => state.deleteUser);
 

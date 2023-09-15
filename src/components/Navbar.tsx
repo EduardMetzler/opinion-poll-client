@@ -1,6 +1,5 @@
-import { NavLink } from "react-router-dom";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { paths } from "../components/routes";
 
 import axios from "axios";
