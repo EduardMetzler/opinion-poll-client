@@ -6,7 +6,7 @@ interface UserStore {
   deleteUser: () => void;
 }
 
-export const useUserStore = create<UserStore>((set, get) => ({
+export const useUserStore = create<UserStore>((set) => ({
   user: { email: "", userName: "", id: "" },
   saveUser: (userWithoutPassword) =>
     set({
