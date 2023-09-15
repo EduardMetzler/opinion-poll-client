@@ -5,7 +5,7 @@ interface OpinionPollStore {
   saveOpinionPoll: (myOpinionPoll: any) => void;
 }
 
-export const opinionPollStore = create<OpinionPollStore>((set, get) => ({
+export const opinionPollStore = create<OpinionPollStore>((set) => ({
   allMyOpinionPollsList: [{ title: "", _id: "" }],
   saveOpinionPoll: (allMyOpinionPollsList) =>
     set({
