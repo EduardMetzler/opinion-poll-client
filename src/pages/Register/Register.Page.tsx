@@ -18,7 +18,7 @@ const RegisterPage: React.FC<any> = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/user/register",
+        `${import.meta.env.VITE_BASE_URL}/user/register`,
         userRegister,
         { withCredentials: true }
       );
