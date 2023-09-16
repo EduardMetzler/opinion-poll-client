@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user/checkCookie`, {
+      .get(`https://opinion-poll-server-43dj.vercel.app/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => {
