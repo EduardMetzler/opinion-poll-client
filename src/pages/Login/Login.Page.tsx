@@ -20,7 +20,7 @@ const LoginPage: React.FC<any> = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://opinion-poll-server-43dj.vercel.app/user/login",
+        `${import.meta.env.BASE_URL}/user/login`,
         userLogin,
         { withCredentials: true }
       );

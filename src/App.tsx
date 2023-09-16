@@ -10,10 +10,11 @@ function App() {
   const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
   const saveUser = useUserStore((state) => state.saveUser);
   const deleteUser = useUserStore((state) => state.deleteUser);
+  console.log(import.meta.env.BASE_URL);
 
   useEffect(() => {
     axios
-      .get(`https://opinion-poll-server-43dj.vercel.app/user/checkCookie`, {
+      .get(`${import.meta.env.BASE_URL}/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => {
