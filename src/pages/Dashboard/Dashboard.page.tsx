@@ -13,9 +13,12 @@ const DashboardPage = () => {
   const saveOpinionPoll = opinionPollStore((state) => state.saveOpinionPoll);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/opinion-poll/get-all-my-opinionPolls-list`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://opinion-poll-server-43dj.vercel.app/opinion-poll/get-all-my-opinionPolls-list`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         console.log(response);
         setLoading(false);
