@@ -14,7 +14,9 @@ const DashboardPage: React.FC<any> = () => {
   useEffect(() => {
     axios
       .get(
-        `https://opinion-poll-server-43dj.vercel.app/opinion-poll/get-all-my-opinionPolls-list`,
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/opinion-poll/get-all-my-opinionPolls-list`,
         {
           withCredentials: true,
         }

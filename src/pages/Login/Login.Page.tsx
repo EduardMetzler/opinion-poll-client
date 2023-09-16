@@ -20,7 +20,7 @@ const LoginPage: React.FC<any> = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${import.meta.env.BASE_URL}/user/login`,
+        `${import.meta.env.VITE_BASE_URL}/user/login`,
         userLogin,
         { withCredentials: true }
       );

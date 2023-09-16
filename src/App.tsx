@@ -10,11 +10,11 @@ function App() {
   const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
   const saveUser = useUserStore((state) => state.saveUser);
   const deleteUser = useUserStore((state) => state.deleteUser);
-  console.log(import.meta.env.BASE_URL);
+  console.log(import.meta.env.VITE_BASE_URL);
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.BASE_URL}/user/checkCookie`, {
+      .get(`${import.meta.env.VITE_BASE_URL}/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => {
