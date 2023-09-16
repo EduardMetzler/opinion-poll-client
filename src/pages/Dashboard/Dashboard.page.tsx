@@ -5,7 +5,7 @@ import Loading from "../../components/Loading";
 import { paths } from "../../components/routes";
 import { opinionPollStore } from "../../stores/opinionPoll";
 
-const DashboardPage = () => {
+const DashboardPage: React.FC<any> = () => {
   const [loading, setLoading] = useState(true);
   const allMyOpinionPollsList = opinionPollStore(
     (state) => state.allMyOpinionPollsList
@@ -33,7 +33,7 @@ const DashboardPage = () => {
   }, []);
   return (
     <>
-      {/* <Link to={paths.createOpinionPoll}>
+      <Link to={paths.createOpinionPoll}>
         <button className=" mx-2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
           Neue Umfrage
         </button>
@@ -65,7 +65,7 @@ const DashboardPage = () => {
         ) : (
           <Loading />
         )}
-      </div> */}
+      </div>
     </>
   );
 };
