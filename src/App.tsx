@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`https://opinion-poll-client-l7o4.vercel.app//user/checkCookie`, {
+      .get(`https://opinion-poll-client-l7o4.vercel.app/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => {
