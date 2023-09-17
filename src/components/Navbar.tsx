@@ -15,9 +15,9 @@ const Navbar = () => {
   const logout = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/user/clearCookie`,
+        `${import.meta.env.VITE_BASE_URL}/user/clearCookie`
 
-        { withCredentials: true }
+        // { withCredentials: true }
       );
       console.log(response);
       Cookies.remove("token");

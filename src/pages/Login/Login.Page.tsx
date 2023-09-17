@@ -22,8 +22,8 @@ const LoginPage: React.FC<any> = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/user/login`,
-        userLogin,
-        { withCredentials: true }
+        userLogin
+        // { withCredentials: true }
       );
       console.log(response);
       saveUser(response.data.userWithoutPassword);
