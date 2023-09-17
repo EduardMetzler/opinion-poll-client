@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../components/routes";
 import { useUserStore } from "../../stores/useUserStore";
+import Cookies from "js-cookie";
 
 // import { userStore } from "../store/userStore";
 
@@ -26,6 +27,7 @@ const LoginPage: React.FC<any> = () => {
       );
       console.log(response);
       saveUser(response.data.userWithoutPassword);
+      Cookies.set("token", response.data.token);
     } catch (error) {
       console.log(error);
     }
