@@ -5,7 +5,7 @@ import Loading from "../../components/Loading";
 import { paths } from "../../components/routes";
 import { opinionPollStore } from "../../stores/opinionPoll";
 
-const DashboardPage: React.FC<any> = () => {
+const FF: React.FC<any> = () => {
   const [loading, setLoading] = useState(true);
   const allMyOpinionPollsList = opinionPollStore(
     (state) => state.allMyOpinionPollsList
@@ -72,4 +72,4 @@ const DashboardPage: React.FC<any> = () => {
   );
 };
 
-export default DashboardPage;
+export default FF;
