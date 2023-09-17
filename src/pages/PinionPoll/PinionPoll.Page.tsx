@@ -26,7 +26,7 @@ const PinionPollPage: React.FC<any> = () => {
   const [select, setSelect] = useState(100);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/opinion-poll/${_id}`, {
+      .get(`${import.meta.env.VITE_BASE_URL}/opinion-poll/${_id}`, {
         withCredentials: true,
       })
       .then((response) => {

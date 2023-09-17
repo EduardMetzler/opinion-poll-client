@@ -20,9 +20,14 @@ const MyOpinionPollPage: React.FC<any> = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/opinion-poll/get-my-opinion-poll/${_id}`, {
-        withCredentials: true,
-      })
+      .get(
+        `${
+          import.meta.env.VITE_BASE_URL
+        }/opinion-poll/get-my-opinion-poll/${_id}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         setOpinionPoll(response.data);
       })

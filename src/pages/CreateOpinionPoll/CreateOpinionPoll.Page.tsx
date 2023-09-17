@@ -26,7 +26,7 @@ const CreateOpinionPollPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/opinion-poll/create",
+        `${import.meta.env.VITE_BASE_URL}/opinion-poll/create`,
         { title, questions },
         { withCredentials: true }
       );
