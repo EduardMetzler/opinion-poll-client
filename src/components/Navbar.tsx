@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { paths } from "../components/routes";
+import Cookies from "js-cookie";
 
 import axios from "axios";
 import { useUserStore } from "../stores/useUserStore";
@@ -19,6 +20,7 @@ const Navbar = () => {
         { withCredentials: true }
       );
       console.log(response);
+      Cookies.remove("token");
       deleteUser();
     } catch (error) {
       console.log(error);
