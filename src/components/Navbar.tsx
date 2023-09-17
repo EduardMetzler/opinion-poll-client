@@ -14,7 +14,7 @@ const Navbar = () => {
   const logout = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/user/clearCookie",
+        `${import.meta.env.VITE_BASE_URL}/user/clearCookie`,
 
         { withCredentials: true }
       );
