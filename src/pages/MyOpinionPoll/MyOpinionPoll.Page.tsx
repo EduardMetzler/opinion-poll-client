@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PinionPollData from "../../components/PinionPollData";
 import Cookies from "js-cookie";
 
@@ -40,6 +40,7 @@ const MyOpinionPollPage: React.FC<any> = () => {
   return (
     <>
       <PinionPollData opinionPoll={opinionPoll} />
+      <Link to={`/${_id}`}>Link:{opinionPoll.title}</Link>
     </>
   );
 };
