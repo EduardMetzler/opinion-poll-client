@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const CreateOpinionPollPage = () => {
   const [title, setTitle] = useState("");
@@ -27,8 +28,8 @@ const CreateOpinionPollPage = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/opinion-poll/create`,
-        { title, questions },
-        { withCredentials: true }
+        { title, questions, token: `${Cookies.get("token")}` }
+        // { withCredentials: true }
       );
       console.log(response);
     } catch (error) {

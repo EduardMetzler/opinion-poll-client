@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/Loading";
 import PinionPollData from "../../components/PinionPollData";
+import Cookies from "js-cookie";
 
 interface OpinionPoll {
   title: string;
@@ -26,9 +27,13 @@ const PinionPollPage: React.FC<any> = () => {
   const [select, setSelect] = useState(100);
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/opinion-poll/${_id}`, {
-        withCredentials: true,
-      })
+      .post(
+        `${import.meta.env.VITE_BASE_URL}/opinion-poll/${_id}`,
+        //  {
+        //   withCredentials: true,
+        // }
+        { token: `${Cookies.get("token")}` }
+      )
       .then((response) => {
         setOpinionPoll(response.data);
         setLoading(false);

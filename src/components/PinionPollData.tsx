@@ -7,7 +7,10 @@ const PinionPollData: React.FC<any> = ({ opinionPoll }) => {
         {" "}
         {opinionPoll.questions.map((oneOpinionPoll: any) => {
           return (
-            <div className="flex font-[Poppins]  ">
+            <div
+              key={oneOpinionPoll.question}
+              className="flex font-[Poppins]  "
+            >
               <p className=" basis-11/12 bg-slate-100 p-2">
                 {oneOpinionPoll.question}
               </p>

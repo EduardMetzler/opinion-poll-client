@@ -4,6 +4,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useUserStore } from "../src/stores/useUserStore";
 import Layout from "./components/Layout";
 import AllRoutes from "./components/routes";
+import Cookies from "js-cookie";
+
 import "./index.css";
 
 function App() {
@@ -14,11 +16,16 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_BASE_URL}/user/checkCookie`, {
-        withCredentials: true,
-      })
+      .post(
+        `${import.meta.env.VITE_BASE_URL}/user/checkCookie`,
+        // {
+        //   withCredentials: true,
+        // }
+        { token: `${Cookies.get("token")}` }
+        // { headers: { Authorization: `Bearer ${Cookies.get("token")}` } }
+      )
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         saveUser(response.data);
         setAuthenticationCompleted(true);
       })

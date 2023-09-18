@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { paths } from "../../components/routes";
 import { opinionPollStore } from "../../stores/opinionPoll";
+import Cookies from "js-cookie";
 
 const FF: React.FC<any> = () => {
   const [loading, setLoading] = useState(true);
@@ -13,13 +14,14 @@ const FF: React.FC<any> = () => {
   const saveOpinionPoll = opinionPollStore((state) => state.saveOpinionPoll);
   useEffect(() => {
     axios
-      .get(
+      .post(
         `${
           import.meta.env.VITE_BASE_URL
         }/opinion-poll/get-all-my-opinionPolls-list`,
-        {
-          withCredentials: true,
-        }
+        // {
+        //   withCredentials: true,
+        // }
+        { token: `${Cookies.get("token")}` }
       )
       .then((response) => {
         console.log(response);
