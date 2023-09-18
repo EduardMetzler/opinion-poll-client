@@ -49,7 +49,7 @@ const PinionPollPage: React.FC<any> = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/opinion-poll/vote/${_id}`,
+        `${import.meta.env.VITE_BASE_URL}/opinion-poll/vote/${_id}`,
         { select }
       );
 
