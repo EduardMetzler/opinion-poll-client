@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { paths } from "../../components/routes";
 import { useUserStore } from "../../stores/useUserStore";
+import Cookies from "js-cookie";
 
 const RegisterPage: React.FC<any> = () => {
   // const navigate = useNavigate();
@@ -19,10 +20,11 @@ const RegisterPage: React.FC<any> = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/user/register`,
-        userRegister,
-        { withCredentials: true }
+        userRegister
+        // { withCredentials: true }
       );
       console.log(response);
+      Cookies.set("token", response.data.token);
       saveUser(response.data.userWithoutPassword);
     } catch (error) {
       console.log(error);
