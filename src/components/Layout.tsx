@@ -7,11 +7,9 @@ interface Props {
 const Layout: React.FunctionComponent<Props> = ({ children }) => {
   return (
     <>
-      <div>
-        <div>
-          <Navbar />
-          <div>{children}</div>
-        </div>
+      <div className="min-h-screen">
+        <Navbar />
+        <div>{children}</div>
       </div>
       {/* <Footer /> */}
     </>

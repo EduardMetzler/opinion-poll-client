@@ -7,7 +7,10 @@ import axios from "axios";
 import { useUserStore } from "../stores/useUserStore";
 
 const Navbar = () => {
-  const Links = [{ name: "Home", link: "/" }];
+  const Links = [
+    { name: "Home", link: "/" },
+    { name: "Dashboard", link: "/dashboard" },
+  ];
   let [open, setOpen] = useState(false);
   const deleteUser = useUserStore((state) => state.deleteUser);
   const user = useUserStore((state) => state.user);

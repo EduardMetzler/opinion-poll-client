@@ -41,7 +41,7 @@ const CreateOpinionPollPage = () => {
       <form className="mt-6" onSubmit={handleSubmit}>
         <div className="mb-2">
           <label className="block text-sm font-semibold text-gray-800">
-            Titel
+            Frage
           </label>
           <input
             value={title}
@@ -54,7 +54,7 @@ const CreateOpinionPollPage = () => {
           return (
             <div key={oneAnswer.id} className="mb-2">
               <label className="block text-sm font-semibold text-gray-800">
-                Titel
+                Variante
               </label>
               <input
                 type="text"
