@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Loading from "../../components/Loading";
 import { paths } from "../../components/routes";
 import { opinionPollStore } from "../../stores/opinionPoll";
+import PinionPollSelect from "../../components/PinionPollSelect";
+
 import Cookies from "js-cookie";
 
 const FF: React.FC<any> = () => {
@@ -24,7 +26,7 @@ const FF: React.FC<any> = () => {
         { token: `${Cookies.get("token")}` }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setLoading(false);
 
         saveOpinionPoll(response.data);
@@ -49,15 +51,9 @@ const FF: React.FC<any> = () => {
             {allMyOpinionPollsList.length > 0 ? (
               allMyOpinionPollsList.map((opinionPoll) => {
                 return (
-                  <Link
-                    key={opinionPoll._id}
-                    to={`/my-opinion-poll/${opinionPoll._id}`}
-                    className="mx-2"
-                  >
-                    <button className=" w-11/12 my-2  px-4 py-2 text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                      {opinionPoll.title}
-                    </button>
-                  </Link>
+                  <div key={opinionPoll._id}>
+                    <PinionPollSelect opinionPoll={opinionPoll} />
+                  </div>
                 );
               })
             ) : (
