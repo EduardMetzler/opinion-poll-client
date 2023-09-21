@@ -6,7 +6,7 @@ interface OpinionPollStore {
 }
 
 export const opinionPollStore = create<OpinionPollStore>((set) => ({
-  allMyOpinionPollsList: [{ title: "", _id: "" }],
+  allMyOpinionPollsList: [{ title: "", _id: "", onlyLink: true }],
   saveOpinionPoll: (allMyOpinionPollsList) =>
     set({
       allMyOpinionPollsList,

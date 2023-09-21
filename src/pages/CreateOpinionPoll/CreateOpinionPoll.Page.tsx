@@ -10,6 +10,8 @@ const CreateOpinionPollPage = () => {
     { question: "", vote: 0, id: 1 },
   ]);
 
+  const [onlyLink, setOnlyLink] = useState(true);
+
   const changeAnswer = (id: number, value: string) => {
     setquestions(
       questions.map((quest) => {
@@ -28,7 +30,7 @@ const CreateOpinionPollPage = () => {
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/opinion-poll/create`,
-        { title, questions, token: `${Cookies.get("token")}` }
+        { title, questions, onlyLink, token: `${Cookies.get("token")}` }
         // { withCredentials: true }
       );
       console.log(response);
@@ -65,6 +67,19 @@ const CreateOpinionPollPage = () => {
             </div>
           );
         })}
+        <div className="flex items-center">
+          <input
+            checked={onlyLink ? true : false}
+            onClick={() => {
+              setOnlyLink(!onlyLink);
+            }}
+            type="checkbox"
+            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2 "
+          />
+          <label className="ml-2 text-sm font-medium text-gray-900 ">
+            Nur per link
+          </label>
+        </div>
 
         <div className="mt-6">
           <button

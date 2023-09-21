@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 interface OpinionPoll {
   title: string;
   questions: [{ id: number; question: string; vote: number }];
+  onlyLink: Boolean;
 }
 
 const MyOpinionPollPage: React.FC<any> = () => {
@@ -16,6 +17,7 @@ const MyOpinionPollPage: React.FC<any> = () => {
   const [opinionPoll, setOpinionPoll] = useState<OpinionPoll>({
     title: "",
     questions: [{ id: 0, question: "", vote: 0 }],
+    onlyLink: false,
   });
 
   const [value, copy] = useCopyToClipboard();
@@ -60,6 +62,7 @@ const MyOpinionPollPage: React.FC<any> = () => {
           </div>
         </button>
       </div>
+      <p>Nur per Link: {opinionPoll.onlyLink ? "Ja" : "Nein"}</p>
     </>
   );
 };
