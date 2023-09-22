@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const CreateOpinionPollPage = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +12,7 @@ const CreateOpinionPollPage = () => {
   ]);
 
   const [onlyLink, setOnlyLink] = useState(true);
+  const navigate = useNavigate();
 
   const changeAnswer = (id: number, value: string) => {
     setquestions(
@@ -34,6 +36,7 @@ const CreateOpinionPollPage = () => {
         // { withCredentials: true }
       );
       console.log(response);
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
