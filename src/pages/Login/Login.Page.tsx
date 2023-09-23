@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { paths } from "../../components/routes";
 import { useUserStore } from "../../stores/useUserStore";
 import Cookies from "js-cookie";
-
-// import { userStore } from "../store/userStore";
+import { useToastStore } from "../../stores/useToastStore";
 
 const LoginPage: React.FC<any> = () => {
-  //   const { firstName, setFirstName, setlastName, setRole } = userStore();
-  // const navigate = useNavigate();
+  const setToast = useToastStore((state) => state.setToast);
 
   const [userLogin, setUserLogin] = useState({
     email: "",
@@ -25,7 +23,8 @@ const LoginPage: React.FC<any> = () => {
         userLogin
         // { withCredentials: true }
       );
-      console.log(response);
+
+      setToast(response.data.msg);
       saveUser(response.data.userWithoutPassword);
       Cookies.set("token", response.data.token);
     } catch (error) {
