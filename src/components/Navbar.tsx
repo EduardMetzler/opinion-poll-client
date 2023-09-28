@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { paths } from "../components/routes";
 import Cookies from "js-cookie";
+import { Button } from "../../@/components/ui/button";
 
 import axios from "axios";
 import { useUserStore } from "../stores/useUserStore";
@@ -90,7 +91,7 @@ text-gray-800"
           ))}
           {!user.id ? (
             <>
-              {" "}
+              {/* <Button variant="outline">Outline</Button> */}
               <Link
                 to={paths.loginPath}
                 className="w-full ml-2 px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"

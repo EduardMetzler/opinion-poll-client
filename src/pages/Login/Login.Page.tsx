@@ -5,6 +5,7 @@ import { paths } from "../../components/routes";
 import { useUserStore } from "../../stores/useUserStore";
 import Cookies from "js-cookie";
 import { useToastStore } from "../../stores/useToastStore";
+import { Button } from "../../../@/components/ui/button";
 
 const LoginPage: React.FC<any> = () => {
   const setToast = useToastStore((state) => state.setToast);
@@ -76,6 +77,9 @@ const LoginPage: React.FC<any> = () => {
               >
                 Login
               </button>
+              {/* <Button className="w-full" variant="outline">
+                Outline
+              </Button> */}
             </div>
           </form>
 
