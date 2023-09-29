@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useToastStore } from "../stores/useToastStore";
 import { useEffect } from "react";
+import Footer from "./Footer";
 interface Props {
   children: React.ReactNode;
 }
@@ -28,7 +29,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) => {
         <Navbar />
         <div>{children}</div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

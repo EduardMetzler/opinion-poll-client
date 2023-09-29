@@ -6,7 +6,8 @@ import Layout from "./components/Layout";
 import AllRoutes from "./components/routes";
 import Cookies from "js-cookie";
 
-import "./index.css";
+// import "./index.css";
+import "../app/globals.css";
 
 function App() {
   const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
