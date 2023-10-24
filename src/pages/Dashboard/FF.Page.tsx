@@ -26,7 +26,6 @@ const FF: React.FC<any> = () => {
         { token: `${Cookies.get("token")}` }
       )
       .then((response) => {
-        // console.log(response);
         setLoading(false);
 
         saveOpinionPoll(response.data);
